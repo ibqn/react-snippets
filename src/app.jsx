@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import './app.css'
 import AddSnippet from './components/add-snippet'
+import GlobalStyles from './components/global-styles'
 import ListSnippets from './components/list-snippets'
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
 
   return (
     <>
+      <GlobalStyles />
       <div>Snippets</div>
       <AddSnippet addSnippet={handleAdd} />
       <ListSnippets snippets={snippets} />
