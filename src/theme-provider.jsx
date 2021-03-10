@@ -1,24 +1,20 @@
-import React, {
+import {
   createContext,
   useContext,
   useState,
   useMemo,
   useCallback,
-} from "react"
+} from 'react'
 
-import {
-  MuiThemeProvider,
-  createMuiTheme,
-  useTheme,
-} from "@material-ui/core/styles"
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
-import useMediaQuery from "@material-ui/core/useMediaQuery"
-import { lightBlue, grey } from "@material-ui/core/colors"
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import { lightBlue, grey } from '@material-ui/core/colors'
 
 const DarkModeContext = createContext(null)
 
 const ThemeProvider = ({ children, theme }) => {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)")
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const [darkMode, setDarkMode] = useState(prefersDarkMode)
 
   const memoTheme = useMemo(
@@ -29,7 +25,7 @@ const ThemeProvider = ({ children, theme }) => {
           primary: {
             main: darkMode ? grey[900] : lightBlue[500],
           },
-          type: darkMode ? "dark" : "light",
+          type: darkMode ? 'dark' : 'light',
         },
       }),
     [theme, darkMode]
@@ -37,7 +33,7 @@ const ThemeProvider = ({ children, theme }) => {
 
   return (
     <MuiThemeProvider theme={memoTheme}>
-      <DarkModeContext.Provider value={setDarkMode}>
+      <DarkModeContext.Provider value={[darkMode, setDarkMode]}>
         {children}
       </DarkModeContext.Provider>
     </MuiThemeProvider>
@@ -45,14 +41,13 @@ const ThemeProvider = ({ children, theme }) => {
 }
 
 const useChangeTheme = () => {
-  const theme = useTheme()
-  const setDarkMode = useContext(DarkModeContext)
-  const changeTheme = useCallback(
-    () => setDarkMode(theme.palette.type === "light"),
-    [theme.palette.type, setDarkMode]
-  )
+  const [darkMode, setDarkMode] = useContext(DarkModeContext)
+  const changeTheme = useCallback(() => setDarkMode(!darkMode), [
+    darkMode,
+    setDarkMode,
+  ])
 
-  return changeTheme
+  return [darkMode, changeTheme]
 }
 
 export { ThemeProvider, useChangeTheme }

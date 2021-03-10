@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const theme = useTheme()
   const classes = useStyles(theme)
-  const changeTheme = useChangeTheme()
+  const [darkMode, changeTheme] = useChangeTheme()
   return (
     <AppBar position="static" className={classes.root}>
       <Toolbar>
@@ -95,10 +95,10 @@ const Header = () => {
           title="Toggle light/dark mode"
           onClick={() => changeTheme()}
         >
-          {theme.palette.type === 'light' ? (
-            <Brightness4Icon className={classes.icon} />
-          ) : (
+          {darkMode ? (
             <Brightness7Icon className={classes.icon} />
+          ) : (
+            <Brightness4Icon className={classes.icon} />
           )}
         </IconButton>
         <Button component={Link} to="/login" className={classes.loginButton}>
