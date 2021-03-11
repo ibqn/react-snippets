@@ -7,7 +7,15 @@ import Header from './components/header'
 import ListSnippets from './components/list-snippets'
 
 const App = () => {
-  const [snippets, setSnippets] = useState(['const add (a, b) => a + b'])
+  const [snippets, setSnippets] = useState([
+    'const add (a, b) => a + b',
+    `
+    function foo(bar) {
+      var a = 42,
+          b = 'Prism';
+      return a + bar(b);
+    }`,
+  ])
 
   const handleAdd = (newSnippet) => {
     console.log(`handle add ${newSnippet}`)
