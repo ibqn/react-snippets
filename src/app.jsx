@@ -5,6 +5,7 @@ import AddSnippet from './components/add-snippet'
 import GlobalStyles from './components/global-styles'
 import Header from './components/header'
 import ListSnippets from './components/list-snippets'
+import Login from './components/login'
 
 const App = () => {
   const [snippets, setSnippets] = useState([
@@ -28,6 +29,9 @@ const App = () => {
       <Router>
         <Header />
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/">
             <AddSnippet addSnippet={handleAdd} />
             <ListSnippets snippets={snippets} />
