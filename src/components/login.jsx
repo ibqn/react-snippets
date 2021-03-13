@@ -51,6 +51,7 @@ const Login = () => {
 
   const handleChange = ({ target: { name, value } }) =>
     setState({ ...state, [name]: value })
+
   const handleSubmit = () => {}
 
   return (
