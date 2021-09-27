@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 
 import { Link } from 'react-router-dom'
 
-import { useChangeTheme } from '../theme-provider'
+import { useChangeTheme } from 'theme-provider'
 
 import IconButton from '@material-ui/core/IconButton'
 import Brightness4Icon from '@material-ui/icons/Brightness4'

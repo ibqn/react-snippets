@@ -8,7 +8,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { useTheme, makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Login = () => {
-  const theme = useTheme()
-  const classes = useStyles(theme)
+  const classes = useStyles()
 
   // const [email, setEmail] = useState('')
   // const [password, setPassword] = useState('')

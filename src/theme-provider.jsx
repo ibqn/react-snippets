@@ -6,7 +6,10 @@ import {
   useCallback,
 } from 'react'
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import {
+  ThemeProvider as MuiThemeProvider,
+  createTheme,
+} from '@material-ui/core/styles'
 
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { lightBlue, grey } from '@material-ui/core/colors'
@@ -19,7 +22,7 @@ const ThemeProvider = ({ children, theme }) => {
 
   const memoTheme = useMemo(
     () =>
-      createMuiTheme({
+      createTheme({
         ...theme,
         palette: {
           primary: {
@@ -42,10 +45,10 @@ const ThemeProvider = ({ children, theme }) => {
 
 const useChangeTheme = () => {
   const [darkMode, setDarkMode] = useContext(DarkModeContext)
-  const changeTheme = useCallback(() => setDarkMode(!darkMode), [
-    darkMode,
-    setDarkMode,
-  ])
+  const changeTheme = useCallback(
+    () => setDarkMode(!darkMode),
+    [darkMode, setDarkMode]
+  )
 
   return [darkMode, changeTheme]
 }

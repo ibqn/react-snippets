@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Prism from 'prismjs'
 import PropTypes from 'prop-types'
 
-import { useChangeTheme } from '../theme-provider'
+import { useChangeTheme } from 'theme-provider'
 
 // import 'prismjs/themes/prism-solarizedlight.css'
 import { lightTheme, darkTheme } from './code-snippet-themes'
