@@ -1,4 +1,4 @@
-import CodeSnippet from './code-snippet'
+import CodeSnippet from 'components/code-snippet'
 
 const ListSnippets = (props) => {
   const { snippets } = props
