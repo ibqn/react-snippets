@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './app'
 import reportWebVitals from './reportWebVitals'
 
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 import indigo from '@material-ui/core/colors/indigo'
 import orange from '@material-ui/core/colors/orange'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -16,7 +16,7 @@ import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       light: indigo[500],
